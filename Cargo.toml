@@ -3,6 +3,9 @@ name = "raven-ecp"
 version = "0.1.0"
 edition = "2018"
 description = "Send error reports from Compute@Edge to Sentry"
+license = "MIT"
+repository = "https://github.com/fastly/raven-ecp"
+readme = "README.md"
 
 [dependencies]
 fastly = "0.8.0"

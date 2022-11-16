@@ -4,7 +4,6 @@ use fastly::Request;
 use serde::Serialize;
 use time::OffsetDateTime;
 
-
 #[derive(Serialize)]
 pub struct EventPayload {
     pub event_id: String,
@@ -77,7 +76,7 @@ impl<T: std::error::Error> From<T> for EventPayload {
             exception: vec![Exception {
                 name: format!("{:?}", error)
                     .chars()
-                    .take_while(|&ch| ch != '(')
+                    .take_while(|&ch| ch != '(' && ch != ' ')
                     .collect::<String>(),
                 value: error.to_string(),
             }],

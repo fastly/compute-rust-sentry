@@ -30,9 +30,11 @@ impl Raven {
         };
 
         let auth_string = format!(
-            "Sentry sentry_version=7,sentry_key={},sentry_secret={},sentry_client=ecp-raven/1.0",
+            "Sentry sentry_version=7,sentry_key={},sentry_secret={},sentry_client={}/{}",
             self.dsn.username(),
-            self.dsn.password().unwrap_or("")
+            self.dsn.password().unwrap_or(""),
+            env!("CARGO_PKG_NAME"),
+            env!("CARGO_PKG_VERSION")
         );
 
         let req = Request::new(
