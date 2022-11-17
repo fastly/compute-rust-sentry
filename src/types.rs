@@ -32,6 +32,7 @@ pub struct RequestMetadata {
     method: String,
     url: String,
     headers: HashMap<String, String>,
+    env: HashMap<String, String>,
 }
 
 #[derive(Serialize)]
@@ -96,10 +97,17 @@ impl From<&Request> for RequestMetadata {
             );
         });
 
+        let mut env = HashMap::new();
+
+        if let Some(addr) = request.get_client_ip_addr() {
+            env.insert("REMOTE_ADDR".to_string(), addr.to_string());
+        }
+
         RequestMetadata {
             method: request.get_method().to_string(),
             url: request.get_url().to_string(),
             headers,
+            env,
         }
     }
 }
