@@ -1,6 +1,6 @@
 [package]
 name = "raven-ecp"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2018"
 description = "Send error reports from Compute@Edge to Sentry"
 license = "MIT"

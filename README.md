@@ -9,7 +9,7 @@ Send error reports from Rust Compute@Edge services to Sentry.
 Add the crate to your `Cargo.toml`:
 
 ```toml
-raven-ecp = "0.1.0"
+raven-ecp = "0.1.1"
 ```
 
 Configure the `sentry` backend locally (optional):
