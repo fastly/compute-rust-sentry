@@ -31,7 +31,7 @@ pub struct Exception {
 pub struct RequestMetadata {
     method: String,
     url: String,
-    headers: HashMap<String, String>,
+    headers: Vec<(String, String)>,
     env: HashMap<String, String>,
 }
 
@@ -88,13 +88,10 @@ impl<T: std::error::Error> From<T> for EventPayload {
 
 impl From<&Request> for RequestMetadata {
     fn from(request: &Request) -> Self {
-        let mut headers = HashMap::new();
+        let mut headers = vec![];
 
-        request.get_header_names().for_each(|k| {
-            headers.insert(
-                k.to_string(),
-                request.get_header(k).unwrap().to_str().unwrap().to_string(),
-            );
+        request.get_headers().for_each(|(k, v)| {
+            headers.insert(0, (k.to_string(), v.to_str().unwrap().to_string()));
         });
 
         let mut env = HashMap::new();
