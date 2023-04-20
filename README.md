@@ -34,6 +34,9 @@ Wrap your main logic with an error handler in order to catch exceptions:
 ```rust
 #[fastly::main]
 fn main(req: Request) -> Result<Response, fastly::Error> {
+    // Clone the request metadata so it can be attached to any reports later.
+    let req_metadata = req.clone_without_body().with_header(header::COOKIE, "REDACTED");
+
     let raven = Raven::from_dsn_and_backend(
         Url::parse(
             "https://abcdef@o122324.ingest.sentry.io/1234",
