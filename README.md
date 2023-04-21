@@ -1,4 +1,4 @@
-# raven-ecp
+# compute-rust-sentry
 
 Send error reports from Rust Compute@Edge services to Sentry.
 
@@ -9,7 +9,7 @@ Send error reports from Rust Compute@Edge services to Sentry.
 Add the crate to your `Cargo.toml`:
 
 ```toml
-raven-ecp = "0.1.1"
+compute-rust-sentry = "0.1.1"
 ```
 
 Configure the `sentry` backend locally (optional):
