@@ -1,6 +1,6 @@
 # compute-rust-sentry
 
-Send error reports from Rust Compute@Edge services to Sentry.
+Send error reports to Sentry from Fastly Compute services written in Rust.
 
 ![A screenshot of the Sentry dashboard displaying an error in a Compute@Edge application](docs/screenshot.png)
 
