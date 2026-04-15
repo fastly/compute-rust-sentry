@@ -9,7 +9,7 @@ Send error reports to Sentry from Fastly Compute services written in Rust.
 Add the crate to your `Cargo.toml`:
 
 ```toml
-compute-rust-sentry = "0.1.1"
+compute-rust-sentry = "0.2.0"
 ```
 
 Configure the `sentry` backend locally (optional):
